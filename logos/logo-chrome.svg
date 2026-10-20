@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1110 300" role="img" aria-label="FUKUSOU">
+  <title>FUKUSOU</title>
+  <defs>
+    <!-- 80s chrome: sky blue, white horizon, dark horizon line, red/peach floor -->
+    <linearGradient id="chrome" gradientUnits="userSpaceOnUse" x1="0" y1="-38" x2="0" y2="112">
+      <stop offset="0"    stop-color="#1546c8"/>
+      <stop offset="0.22" stop-color="#4f9bf0"/>
+      <stop offset="0.40" stop-color="#bfe6ff"/>
+      <stop offset="0.48" stop-color="#ffffff"/>
+      <stop offset="0.52" stop-color="#16206a"/>
+      <stop offset="0.58" stop-color="#2f5fd6"/>
+      <stop offset="0.66" stop-color="#e01c32"/>
+      <stop offset="0.84" stop-color="#ff6f6a"/>
+      <stop offset="1"    stop-color="#ffc9b0"/>
+    </linearGradient>
+    <linearGradient id="side" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ff8a7a"/>
+      <stop offset="1" stop-color="#9e0f1e"/>
+    </linearGradient>
+
+    <g id="word">
+      <!-- F (taller, with up-left wing) -->
+      <g transform="translate(35 50) scale(1.22) translate(-35 -50)">
+        <path d="M0 0H70L64 22H26V40H58L53 60H26V100H0Z"/>
+        <path d="M0 0H26L-14 -22H-40Z"/>
+      </g>
+      <!-- U -->
+      <path transform="translate(78,0)" d="M0 0H26V74H40V0H66V88L54 100H12L0 88Z"/>
+      <!-- K -->
+      <path transform="translate(152,0)" d="M0 0H26V38L44 0H72L48 50L72 100H44L26 64V100H0Z"/>
+      <!-- U -->
+      <path transform="translate(232,0)" d="M0 0H26V74H40V0H66V88L54 100H12L0 88Z"/>
+      <!-- S -->
+      <path transform="translate(306,0)" d="M6 0H66V22H28V38H60L66 44V94L60 100H0V78H38V62H6L0 56V6Z"/>
+      <!-- O -->
+      <path transform="translate(380,0)" fill-rule="evenodd" d="M10 0H58L68 10V90L58 100H10L0 90V10ZM26 22V78H42V22Z"/>
+      <!-- final U (taller, up-right wing mirrors the F; no tail, so it reads U not Y) -->
+      <g transform="translate(489 50) scale(1.22) translate(-489 -50)">
+        <path transform="translate(456,0)" d="M0 0H26V74H40V0H66V88L54 100H12L0 88Z"/>
+        <path transform="translate(456,0)" d="M40 0H66L106 -22H80Z"/>
+      </g>
+    </g>
+  </defs>
+
+  <g transform="translate(110,80) scale(1.7)">
+    <!-- extrusion -->
+    <use xlink:href="#word" href="#word" transform="translate(7.5,9)" fill="#4a0510"/>
+    <use xlink:href="#word" href="#word" transform="translate(6,7.2)" fill="#8e0d1c"/>
+    <use xlink:href="#word" href="#word" transform="translate(4.5,5.4)" fill="url(#side)"/>
+    <use xlink:href="#word" href="#word" transform="translate(3,3.6)" fill="url(#side)"/>
+    <use xlink:href="#word" href="#word" transform="translate(1.5,1.8)" fill="#d42a3a"/>
+    <!-- chrome face -->
+    <use xlink:href="#word" href="#word" fill="url(#chrome)" stroke="#0b1240" stroke-width="1.2" stroke-linejoin="miter"/>
+    <!-- top glints -->
+    <use xlink:href="#word" href="#word" fill="none" stroke="#ffffff" stroke-opacity=".35" stroke-width=".6" transform="translate(.6,.6)"/>
+  </g>
+</svg>

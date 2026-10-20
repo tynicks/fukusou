@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FUKUSOU — Logo Options</title>
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#0a0a0a;--fg:#f2f2f2;--mute:#7a7a7a;--red:#e10600;--line:#222}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--fg);font-family:'Space Mono',monospace;padding:48px 16px 80px}
+  header{max-width:1200px;margin:0 auto 40px;display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;border-bottom:2px solid var(--fg);padding-bottom:16px}
+  h1{font-family:'Anton',sans-serif;font-size:clamp(40px,8vw,96px);line-height:.9;letter-spacing:-1px}
+  header p{color:var(--mute);font-size:12px;letter-spacing:2px;text-transform:uppercase;max-width:420px}
+  .grid{max-width:1200px;margin:0 auto;display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+  .opt{border:1px solid var(--line);display:flex;flex-direction:column}
+  .opt.chosen{border-color:var(--red)}
+  .stage{aspect-ratio:4/3;display:grid;place-items:center;padding:32px;background:#0a0a0a}
+  .stage.alt{background:#2a2a2a}
+  .stage img{max-width:100%;max-height:200px;width:auto;height:auto}
+  .meta{padding:16px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;align-items:start}
+  .meta h2{font-family:'Anton',sans-serif;font-size:28px;letter-spacing:1px}
+  .meta p{font-size:12px;color:var(--mute);margin-top:6px;line-height:1.6}
+  .tag{font-size:11px;letter-spacing:2px;padding:4px 8px;border:1px solid var(--mute);white-space:nowrap}
+  .chosen .tag{background:var(--red);border-color:var(--red);color:#fff}
+  .toggle{display:flex;border-top:1px solid var(--line)}
+  .toggle button{flex:1;background:none;border:0;color:var(--mute);font:inherit;font-size:11px;letter-spacing:2px;padding:10px;cursor:pointer}
+  .toggle button.on{color:var(--fg);background:#151515}
+  footer{max-width:1200px;margin:40px auto 0;color:var(--mute);font-size:12px;line-height:1.8}
+  a{color:var(--fg)}
+</style>
+</head>
+<body>
+<header>
+  <h1>LOGO<br>OPTIONS</h1>
+  <p>Three original marks for Fukusou (服装 — "clothing"). Hand-built from geometric shapes: no borrowed type, no borrowed marks.</p>
+</header>
+<div class="grid">
+  <div class="opt chosen">
+    <div class="stage"><img src="logo-chrome.svg" alt="Official chrome logo"></div>
+    <div class="toggle"><button class="on" data-bg="">BLACK</button><button data-bg="alt">CONCRETE</button></div>
+    <div class="meta"><div><h2>OFFICIAL — CHROME</h2><p>The brand's own chrome logo, redrawn as a vector so it stays sharp at any size. The last letter is a clean U (no Y tail). Original image: original-reference.png.</p></div><span class="tag">ON THE SITE</span></div>
+  </div>
+  <div class="opt">
+    <div class="stage"><img src="logo-a-cut.svg" alt="Option A: Cut"></div>
+    <div class="toggle"><button class="on" data-bg="">BLACK</button><button data-bg="alt">CONCRETE</button></div>
+    <div class="meta"><div><h2>A — CUT</h2><p>Square block wordmark sliced by one raw diagonal cut, red full-stop. Loudest and simplest; reads from across the street.</p></div><span class="tag">OPTION</span></div>
+  </div>
+  <div class="opt">
+    <div class="stage"><img src="logo-b-hanko.svg" alt="Option B: Hanko"></div>
+    <div class="toggle"><button class="on" data-bg="">BLACK</button><button data-bg="alt">CONCRETE</button></div>
+    <div class="meta"><div><h2>B — HANKO</h2><p>Inked red stamp (Japanese name seal) with a knocked-out F, next to the block wordmark. The stamp alone works as the icon, tag and favicon.</p></div><span class="tag">CONCEPT</span></div>
+  </div>
+  <div class="opt">
+    <div class="stage"><img src="logo-c-chisel.svg" alt="Option C: Chisel"></div>
+    <div class="toggle"><button class="on" data-bg="">BLACK</button><button data-bg="alt">CONCRETE</button></div>
+    <div class="meta"><div><h2>C — CHISEL</h2><p>Sharp, carved gallery-style F monogram in a framed plate with red corner diamonds. Most "art object"; best on tags and back prints.</p></div><span class="tag">OPTION</span></div>
+  </div>
+</div>
+<footer>
+  To swap the site logo: copy the chosen SVG over <code>assets/logo.svg</code>.<br>
+  <a href="../index.html">← Back to the site</a>
+</footer>
+<script>
+  document.querySelectorAll('.opt').forEach(function(o){
+    o.querySelectorAll('.toggle button').forEach(function(b){
+      b.addEventListener('click',function(){
+        o.querySelectorAll('.toggle button').forEach(function(x){x.classList.remove('on')});
+        b.classList.add('on');
+        o.querySelector('.stage').className='stage '+b.dataset.bg;
+      });
+    });
+  });
+</script>
+</body>
+</html>

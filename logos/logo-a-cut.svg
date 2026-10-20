@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 170" role="img" aria-label="Fukusou logo, option A: Cut">
+  <title>FUKUSOU — Option A "Cut"</title>
+  <defs>
+    <mask id="cut">
+      <rect width="560" height="170" fill="#fff"/>
+      <polygon points="0,64 560,46 560,53 0,71" fill="#000"/>
+    </mask>
+  </defs>
+  <g mask="url(#cut)" fill="#f2f2f2" fill-rule="evenodd" transform="translate(10,10)">
+    <path d="M0 0H64V20H20V40H52V58H20V100H0Z"/>
+    <path transform="translate(76,0)" d="M0 0H20V80H44V0H64V100H0Z"/>
+    <path transform="translate(152,0)" d="M0 0H20V40L44 0H67L36 50L67 100H44L20 62V100H0Z"/>
+    <path transform="translate(231,0)" d="M0 0H20V80H44V0H64V100H0Z"/>
+    <path transform="translate(307,0)" d="M0 0H64V20H20V40H64V100H0V80H44V60H0Z"/>
+    <path transform="translate(383,0)" d="M0 0H64V100H0ZM20 20V80H44V20Z"/>
+    <path transform="translate(459,0)" d="M0 0H20V80H44V0H64V100H0Z"/>
+  </g>
+  <rect x="541" y="96" width="14" height="14" fill="#e10600"/>
+  <text x="10" y="152" font-family="'Space Mono','Courier New',monospace" font-size="15" letter-spacing="6" fill="#8a8a8a">CLOTHING DIVISION — 服装</text>
+</svg>
