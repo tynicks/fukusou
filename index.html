@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en" class="intro-open">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FUKUSOU 服装</title>
+<meta name="description" content="FUKUSOU 服装 — Drop 001.">
+<meta name="theme-color" content="#000000">
+<!-- link previews (iMessage, Instagram, X, Discord…). Once the site has its domain,
+     change the image URLs to the full address, e.g. https://fukusou.com/assets/og-image.jpg -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FUKUSOU">
+<meta property="og:title" content="FUKUSOU 服装">
+<meta property="og:description" content="Drop 001 「初」 — out now.">
+<meta property="og:image" content="assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="FUKUSOU logo above the plaid hooded zip jacket">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="assets/og-image.jpg">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@1,6..96,400&family=Noto+Serif+JP:wght@200&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<noscript><style>html.intro-open,html.intro-open body{overflow:auto}.intro{display:none}</style></noscript>
+</head>
+<body>
+
+<!-- OPENING PAGE -->
+<div class="intro" id="intro" role="dialog" aria-modal="true" aria-label="Welcome to Fukusou">
+  <p class="intro-top">FUKUSOU 服装 — EST. MMXXVI</p>
+  <div class="intro-mid">
+    <div class="logo3d intro-logo" role="img" aria-label="FUKUSOU">
+      <div class="logo3d-spin">
+        <img src="assets/logo.svg" alt="" class="l3-face l3-front" draggable="false">
+        <img src="assets/logo.svg" alt="" class="l3-face l3-back" draggable="false">
+      </div>
+    </div>
+    <p class="intro-quote">
+      <span class="sr-only">“YOUR STYLIST FAVORITE GARMENTS”</span>
+      <span id="introTyped" aria-hidden="true" data-text="“YOUR STYLIST FAVORITE GARMENTS”"></span><span class="caret" aria-hidden="true"></span>
+    </p>
+    <div class="intro-load" aria-hidden="true"><span id="introBar"></span></div>
+    <button class="ulink intro-enter" id="introEnter">ENTER</button>
+  </div>
+  <p class="intro-bottom">DROP 001 「初」 — OUT NOW</p>
+</div>
+
+<!-- HEADER -->
+<header class="nav" id="nav">
+  <div class="nav-left">
+    <div class="dd" id="shopDD">
+      <button class="dd-btn" aria-expanded="false" aria-haspopup="true">MENU</button>
+      <div class="dd-menu" role="menu">
+        <a href="#shop" data-cat="all" role="menuitem">SHOP ALL <small id="count-all"></small></a>
+        <a href="#shop" data-cat="outerwear" role="menuitem">OUTERWEAR <small id="count-outerwear"></small></a>
+        <a href="#shop" data-cat="tees" role="menuitem">T-SHIRTS <small id="count-tees"></small></a>
+        <a href="#shop" data-cat="hoodies" role="menuitem">HOODIES <small id="count-hoodies"></small></a>
+        <a href="#shop" data-cat="bottoms" role="menuitem">BOTTOMS <small id="count-bottoms"></small></a>
+        <a href="#shop" data-cat="headwear" role="menuitem">HEADWEAR <small id="count-headwear"></small></a>
+        <a href="#shop" data-cat="accessories" role="menuitem">ACCESSORIES <small id="count-accessories"></small></a>
+        <a href="#lookbook" role="menuitem">LOOKBOOK</a>
+        <a href="#about" role="menuitem">ABOUT</a>
+      </div>
+    </div>
+  </div>
+  <a href="#top" class="nav-logo" aria-label="Fukusou home"><img src="assets/logo.svg" alt="FUKUSOU"></a>
+  <div class="nav-right">
+    <button class="cart-btn" id="cartBtn">CART (<span id="cartCount">0</span>)</button>
+  </div>
+</header>
+
+<main id="top">
+  <!-- SPLASH -->
+  <section class="splash" id="hero">
+    <div class="logo3d" role="img" aria-label="FUKUSOU">
+      <div class="logo3d-spin" id="logoSpin">
+        <img src="assets/logo.svg" alt="" class="l3-face l3-front" draggable="false">
+        <img src="assets/logo.svg" alt="" class="l3-face l3-back" draggable="false">
+      </div>
+    </div>
+    <div class="splash-mid">
+      <p>HAJIME 「初」</p>
+      <p>DROP 001 — OUT NOW</p>
+    </div>
+    <a href="#shop" class="ulink splash-enter">ENTER THE SHOP</a>
+    <form id="listForm" class="signup" novalidate>
+      <input type="text" id="listEmail" placeholder="EMAIL OR PHONE NUMBER" aria-label="Email or phone number" required>
+      <button type="submit">SIGN UP</button>
+      <p class="list-msg" id="listMsg" aria-live="polite"></p>
+    </form>
+    <p class="next-drop">NEXT DROP — <span id="cdD">00</span>D <span id="cdH">00</span>H <span id="cdM">00</span>M <span id="cdS">00</span>S</p>
+  </section>
+
+  <!-- CAMPAIGN (editorial drop panel) -->
+  <section class="flyer-wrap">
+    <article class="campaign">
+      <div class="cp-type">
+        <p class="cp-kicker"><span>FUKUSOU 服装</span><span>F/W 2026</span></p>
+        <div class="cp-head">
+          <span class="cp-jp" aria-hidden="true">初</span>
+          <h3 class="cp-title">Hajime</h3>
+          <p class="cp-sub">THE FIRST COLLECTION</p>
+        </div>
+        <ul class="cp-list">
+          <li><span>DROP</span><span>001</span></li>
+          <li><span>RUN</span><span>LIMITED</span></li>
+          <li><span>RESTOCKS</span><span>NONE</span></li>
+        </ul>
+        <a href="#shop" class="ulink cp-cta">SHOP THE COLLECTION</a>
+      </div>
+      <span class="cp-num" aria-hidden="true">001</span>
+    </article>
+  </section>
+
+  <!-- 3D JACKET SHOWCASE -->
+  <section class="spin" id="jacket3d">
+    <h2 class="sec-title">FEATURED</h2>
+    <div class="spin-stage" id="spinStage" aria-label="Plaid hooded zip jacket, 3D view. Drag to rotate.">
+      <canvas class="jacket-gl" id="jacketGL"></canvas>
+      <img class="jacket-fallback" id="jacketFallback" src="assets/products/jacket-front.webp" alt="Plaid hooded zip jacket" hidden>
+      <div class="spin-shadow" id="spinShadow"></div>
+    </div>
+    <div class="spin-views">
+      <button class="chip on" data-view="front">FRONT</button>
+      <button class="chip" data-view="back">BACK</button>
+    </div>
+    <p class="tiny spin-hint">DRAG TO ROTATE</p>
+    <div class="spin-info">
+      <p>PLAID HOODED ZIP JACKET</p>
+      <p>$500</p>
+      <button class="ulink" id="spinBuy">VIEW + BUY</button>
+    </div>
+  </section>
+
+  <!-- SHOP -->
+  <section class="shop" id="shop">
+    <h2 class="sec-title">SHOP</h2>
+    <div class="chips" id="chips">
+      <button class="chip on" data-cat="all">ALL</button>
+      <button class="chip" data-cat="outerwear">OUTERWEAR</button>
+      <button class="chip" data-cat="tees">T-SHIRTS</button>
+      <button class="chip" data-cat="hoodies">HOODIES</button>
+      <button class="chip" data-cat="bottoms">BOTTOMS</button>
+      <button class="chip" data-cat="headwear">HEADWEAR</button>
+      <button class="chip" data-cat="accessories">ACCESSORIES</button>
+    </div>
+    <div class="shop-tools">
+      <label class="toggle-sold"><input type="checkbox" id="hideSold"> HIDE SOLD OUT</label>
+      <div class="dd dd-sort" id="sortDD">
+        <button class="dd-btn" aria-expanded="false">SORT: <span id="sortLabel">FEATURED</span></button>
+        <div class="dd-menu" role="menu">
+          <a href="#" data-sort="featured">FEATURED</a>
+          <a href="#" data-sort="low">PRICE: LOW → HIGH</a>
+          <a href="#" data-sort="high">PRICE: HIGH → LOW</a>
+          <a href="#" data-sort="az">NAME: A → Z</a>
+        </div>
+      </div>
+    </div>
+    <div class="grid" id="grid"></div>
+    <p class="empty" id="empty" hidden>NOTHING HERE YET</p>
+    <p class="tiny more-soon">MORE PIECES DROPPING SOON — <a href="#top" class="ulink">SIGN UP</a> FOR FIRST ACCESS</p>
+  </section>
+
+  <!-- LOOKBOOK -->
+  <section class="lookbook" id="lookbook">
+    <h2 class="sec-title">LOOKBOOK</h2>
+    <div class="lb-grid" id="lbStrip"></div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <h2 class="sec-title">ABOUT</h2>
+    <p>服装 (FUKUSOU) — JAPANESE FOR "CLOTHING."</p>
+    <p>SMALL RUNS. HEAVY BLANKS. WHEN IT'S GONE, IT'S GONE.</p>
+    <p class="tiny">PLACEHOLDER COPY — THE BRAND'S STORY GOES HERE</p>
+  </section>
+</main>
+
+<footer class="footer">
+  <nav class="foot-links">
+    <a href="#about" class="ulink">ABOUT</a>
+    <a href="#shop" class="ulink">SHOP</a>
+    <a href="#lookbook" class="ulink">LOOKBOOK</a>
+    <span class="ulink dim">CONTACT — TBD</span>
+  </nav>
+  <p class="foot-bottom">© 2026, FUKUSOU 服装</p>
+</footer>
+
+<!-- QUICK VIEW -->
+<div class="modal" id="modal" aria-hidden="true">
+  <div class="modal-bg" data-close></div>
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="mName">
+    <button class="modal-x" data-close aria-label="Close">CLOSE (ESC)</button>
+    <div class="modal-media" id="mMedia"></div>
+    <div class="modal-info">
+      <p class="dim" id="mDrop"></p>
+      <h3 id="mName"></h3>
+      <p id="mPrice"></p>
+      <p class="dim" id="mColor"></p>
+      <p class="label">SIZE</p>
+      <div class="sizes" id="mSizes"></div>
+      <button class="btn" id="mAdd">ADD TO CART</button>
+      <p class="tiny m-desc">PLACEHOLDER PRODUCT. REAL PHOTOS, FABRIC DETAILS AND SIZING COMING SOON.</p>
+    </div>
+  </div>
+</div>
+
+<!-- CART -->
+<aside class="cart" id="cart" aria-hidden="true">
+  <div class="cart-bg" data-cclose></div>
+  <div class="cart-panel">
+    <div class="cart-head"><h3>YOUR CART</h3><button data-cclose aria-label="Close cart">CLOSE</button></div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-foot">
+      <div class="cart-total"><span>SUBTOTAL</span><span id="cartTotal">$0</span></div>
+      <button class="btn" id="checkout">CHECKOUT</button>
+      <p class="tiny">SECURE CHECKOUT BY SHOPIFY</p>
+    </div>
+  </div>
+</aside>
+
+<div class="toast" id="toast"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="assets/js/products.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
