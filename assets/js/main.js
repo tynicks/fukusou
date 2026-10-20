@@ -10,6 +10,16 @@
   var SHOPIFY_STORE = 'https://fukusouonline.myshopify.com';
 
   var PRODUCTS = (window.FUKUSOU_PRODUCTS || []).filter(function (p) { return SHOW_PLACEHOLDERS || !p.placeholder; });
+
+  // Images are display-only: no right-click / long-press image menu (where browser
+  // "edit image" tools live) and no dragging images out. Edits a browser makes are
+  // only ever on that viewer's own screen; the real images live in the GitHub repo.
+  document.addEventListener('contextmenu', function (e) {
+    if (e.target.closest && e.target.closest('img, canvas, .tile-media, .modal-media, .spin-stage')) e.preventDefault();
+  });
+  document.addEventListener('dragstart', function (e) {
+    if (e.target.closest && e.target.closest('img, canvas')) e.preventDefault();
+  });
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
 
@@ -28,8 +38,8 @@
 
   function mediaHTML(p, withLabels) {
     if (p.img) {
-      return '<img src="' + p.img + '" alt="' + p.name + '" loading="lazy">' +
-        (p.imgBack ? '<img class="back" src="' + p.imgBack + '" alt="" loading="lazy">' : '');
+      return '<img src="' + p.img + '" alt="' + p.name + '" loading="lazy" draggable="false">' +
+        (p.imgBack ? '<img class="back" src="' + p.imgBack + '" alt="" loading="lazy" draggable="false">' : '');
     }
     return '<div class="ph-stripes"></div>' +
       '<div class="ph ph-front">' + svgShape(p.shape) + '</div>' +
