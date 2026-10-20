@@ -280,48 +280,23 @@
     }
   });
 
-  /* ---- opening page: logo, typed quote, load line, ENTER ---- */
-  (function () {
-    var intro = $('#intro'), root = document.documentElement;
-    if (!intro) { root.classList.remove('intro-open'); return; }
-    function remove() { if (intro.parentNode) intro.parentNode.removeChild(intro); root.classList.remove('intro-open'); }
-    if (location.hash) { remove(); return; }   // links straight to a section (e.g. #shop) skip the intro
-
-    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var typedEl = $('#introTyped'), text = typedEl.getAttribute('data-text');
-    var bar = $('#introBar'), enter = $('#introEnter');
-    var typed = false, loaded = document.readyState === 'complete', i = 0;
-
-    function ready() {
-      if (!typed || !loaded) return;
-      enter.classList.add('show');   // the Enter key works too (handled below)
-    }
-    function type() {
-      if (reduce) { typedEl.textContent = text; typed = true; ready(); return; }
-      typedEl.textContent = text.slice(0, ++i);
-      if (i < text.length) setTimeout(type, 55); else { typed = true; ready(); }
-    }
-    setTimeout(type, reduce ? 0 : 600);
-
-    requestAnimationFrame(function () { bar.style.transform = loaded ? 'scaleX(1)' : 'scaleX(.35)'; });
-    window.addEventListener('load', function () { loaded = true; bar.style.transform = 'scaleX(1)'; ready(); });
-    setTimeout(function () { if (!loaded) { loaded = true; bar.style.transform = 'scaleX(1)'; ready(); } }, 6000);   // never block on a slow asset
-
-    function go() {
-      if (!enter.classList.contains('show') || intro.classList.contains('leaving')) return;
-      intro.classList.add('leaving');
-      root.classList.remove('intro-open');
-      setTimeout(remove, reduce ? 0 : 950);
-    }
-    enter.addEventListener('click', go);
-    document.addEventListener('keydown', function (e) { if (e.key === 'Enter' && intro.parentNode) go(); });
-  })();
+  /* (the opening page runs from its own inline script in index.html, so it never waits on this file) */
 
   /* ---- jacket 3D model ----
      The cut-out photo's outline is "inflated" into a puffy closed shape:
      a distance-to-edge map gives each point a depth (rounded edges, fuller body),
      the front photo is wrapped on the front surface and the back image on the back,
      and real lights shade the volume as it turns. */
+  function loadThree(cb) {
+    if (window.THREE) { cb(true); return; }
+    var s = document.createElement('script');
+    s.src = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
+    s.async = true;
+    s.onload = function () { cb(!!window.THREE); };
+    s.onerror = function () { cb(false); };
+    document.head.appendChild(s);
+  }
+
   function buildJacketModel(stage, canvas) {
     if (!window.THREE) return null;
     var T = window.THREE, renderer;
@@ -426,8 +401,12 @@
   (function () {
     var stage = $('#spinStage'), canvas = $('#jacketGL'), shadow = $('#spinShadow');
     if (!stage || !canvas) return;
-    var model = buildJacketModel(stage, canvas);
-    if (!model) { canvas.hidden = true; $('#jacketFallback').hidden = false; }
+    // the 3D engine (~600 KB) loads in the background so it never holds up the page
+    var model = null;
+    loadThree(function (ok) {
+      model = ok ? buildJacketModel(stage, canvas) : null;
+      if (!model) { canvas.hidden = true; $('#jacketFallback').hidden = false; }
+    });
     var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var ry = -25, rx = 6, vy = reduce ? 0 : 0.35, dragging = false, lx = 0, ly = 0, t0 = performance.now();
     var target = null;   // set by FRONT / BACK buttons
