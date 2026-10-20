@@ -47,6 +47,50 @@
   </div>
   <p class="intro-bottom">DROP 001 「初」 — OUT NOW</p>
 </div>
+<script>
+/* Opening page. Runs on its own, right here, so it never waits on the 3D engine,
+   images or the main script: ENTER shows as soon as the quote has typed out. */
+(function () {
+  var intro = document.getElementById('intro'), root = document.documentElement;
+  function remove() { if (intro && intro.parentNode) intro.parentNode.removeChild(intro); root.classList.remove('intro-open'); }
+  if (!intro) { remove(); return; }
+  if (location.hash) { remove(); return; }   // links straight to a section (e.g. #shop) skip the intro
+
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var typedEl = document.getElementById('introTyped'), text = typedEl.getAttribute('data-text');
+  var bar = document.getElementById('introBar'), enter = document.getElementById('introEnter');
+  var typed = false, pageReady = false, shown = false, i = 0;
+
+  function show() {
+    if (shown) return;
+    shown = true;
+    typedEl.textContent = text;
+    bar.style.transform = 'scaleX(1)';
+    enter.classList.add('show');
+  }
+  function check() { if (typed && pageReady) show(); }
+  function type() {
+    if (reduce) { typedEl.textContent = text; typed = true; check(); return; }
+    typedEl.textContent = text.slice(0, ++i);
+    if (i < text.length) setTimeout(type, 55); else { typed = true; check(); }
+  }
+  setTimeout(type, reduce ? 0 : 500);
+
+  setTimeout(function () { bar.style.transform = 'scaleX(.4)'; }, 50);
+  document.addEventListener('DOMContentLoaded', function () { pageReady = true; check(); });
+  setTimeout(show, 4000);   // hard cap: never keep anyone waiting
+
+  function go() {
+    if (!shown || intro.classList.contains('leaving')) return;
+    intro.classList.add('leaving');
+    root.classList.remove('intro-open');
+    setTimeout(remove, reduce ? 0 : 950);
+  }
+  enter.addEventListener('click', go);
+  intro.addEventListener('click', go);   // once ENTER is showing, a tap anywhere enters
+  document.addEventListener('keydown', function (e) { if (e.key === 'Enter' && intro.parentNode) go(); });
+})();
+</script>
 
 <!-- HEADER -->
 <header class="nav" id="nav">
@@ -224,7 +268,6 @@
 
 <div class="toast" id="toast"></div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="assets/js/products.js"></script>
 <script src="assets/js/main.js"></script>
 </body>
